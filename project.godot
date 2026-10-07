@@ -11,10 +11,15 @@ config_version=5
 [application]
 
 config/name="Dukeofedgame"
+run/main_scene="uid://d4nwgappp4ew4"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

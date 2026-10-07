@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4nwgappp4ew4"]
+
+[ext_resource type="PackedScene" uid="uid://5jtl4jxdkcxa" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cl4nfro7a36tb" path="res://Scenes/tilemap.tscn" id="2_bo1nx"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+
+[node name="Tilemap" parent="." instance=ExtResource("2_bo1nx")]
+texture_filter = 1
