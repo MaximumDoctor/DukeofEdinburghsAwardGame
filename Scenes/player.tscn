@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://5jtl4jxdkcxa"]
+[gd_scene load_steps=9 format=3 uid="uid://5jtl4jxdkcxa"]
 
+[ext_resource type="Script" uid="uid://dm8plj45kry0p" path="res://Scenes/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dfiprurd0q6o7" path="res://Assets/Placeholder Player.png" id="1_v0iea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
@@ -42,6 +43,7 @@ animations = [{
 size = Vector2(12, 23.25)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.536743e-07, 0)
@@ -55,3 +57,6 @@ frame_progress = 0.95768595
 shape = SubResource("RectangleShape2D_3smsa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
