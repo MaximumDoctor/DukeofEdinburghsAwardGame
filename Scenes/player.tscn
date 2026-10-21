@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://5jtl4jxdkcxa"]
+[gd_scene load_steps=11 format=3 uid="uid://5jtl4jxdkcxa"]
 
 [ext_resource type="Script" uid="uid://dm8plj45kry0p" path="res://Scenes/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dfiprurd0q6o7" path="res://Assets/Placeholder Player.png" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://85irkiemywd1" path="res://Scenes/Allomancytable.tscn" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://blweyy82u48pk" path="res://Scenes/allomancytable.gd" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -60,3 +62,25 @@ shape = SubResource("RectangleShape2D_3smsa")
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Camera2D"]
+color = Color(0.33869755, 0.33869755, 0.33869755, 1)
+
+[node name="Allomancytable" parent="Camera2D" instance=ExtResource("3_6t5aa")]
+script = ExtResource("4_vgqql")
+
+[node name="RayCast2D BR" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(20, 0)
+
+[node name="RayCast2D TR" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(15, 0)
+
+[node name="RayCast2D BL" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-20, 0)
+
+[node name="RayCast2D TL" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(-15, 0)

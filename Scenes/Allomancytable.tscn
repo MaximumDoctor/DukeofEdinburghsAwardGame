@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://85irkiemywd1"]
+
+[ext_resource type="Texture2D" uid="uid://chytc5dp0en64" path="res://Assets/AllomancyTableinprog.png" id="1_jmr78"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg5a2"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(0, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjf3l"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(65, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6xmp"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(130, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgm15"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(195, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjdfq"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(260, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c73rr"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(325, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfjve"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(390, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk4dp"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(455, 0, 65, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4a6v"]
+atlas = ExtResource("1_jmr78")
+region = Rect2(520, 0, 65, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3ntb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg5a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjf3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6xmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgm15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjdfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c73rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfjve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk4dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4a6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 4
+z_as_relative = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_j3ntb")
+frame_progress = 0.6011111
