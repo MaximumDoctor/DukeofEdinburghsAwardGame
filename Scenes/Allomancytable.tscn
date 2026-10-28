@@ -1,6 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://85irkiemywd1"]
+[gd_scene load_steps=16 format=3 uid="uid://85irkiemywd1"]
 
 [ext_resource type="Texture2D" uid="uid://chytc5dp0en64" path="res://Assets/AllomancyTableinprog.png" id="1_jmr78"]
+[ext_resource type="Texture2D" uid="uid://cau7bdoljnlw0" path="res://Assets/AllomancyBar.png" id="2_lg5a2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmr78"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lg5a2"]
 atlas = ExtResource("1_jmr78")
@@ -73,11 +77,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lg5a2"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rjf3l"]
+light_mode = 1
+
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 4
 z_as_relative = false
-scale = Vector2(2, 2)
+material = SubResource("CanvasItemMaterial_jmr78")
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j3ntb")
 frame_progress = 0.6011111
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+material = SubResource("CanvasItemMaterial_lg5a2")
+position = Vector2(0, 178)
+scale = Vector2(2, 2)
+texture = ExtResource("2_lg5a2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4
+material = SubResource("CanvasItemMaterial_rjf3l")
+offset_left = -124.0
+offset_top = 164.0
+offset_bottom = 178.0
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 0)
