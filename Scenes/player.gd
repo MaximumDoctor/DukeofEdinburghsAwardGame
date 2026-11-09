@@ -88,8 +88,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
-		velocity.y = JUMP_VELOCITY
-		velocity.x *= 1.2
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			velocity.x *= 1.2
 		
 	#making techy stuff easier
 	if Input.is_action_just_released("move_right"): # if right has just been released
