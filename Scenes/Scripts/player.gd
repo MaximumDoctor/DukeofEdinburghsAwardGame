@@ -15,12 +15,17 @@ extends CharacterBody2D
 @onready var Copperglow = $"Camera2D/Allomancytable/Copperglow"
 @onready var Bronzeglow = $"Camera2D/Allomancytable/Bronzeglow"
 
+@onready var footsteps = $Footsteps
+@onready var timer = $Footsteps/Timer
 
 
 var ACCEL = 15.0
 var DECCEL = 20.0
 var MAXSPD = 200.0
 var JUMP_VELOCITY = -200.0
+
+var speedPercent1 = 0
+var speedPercent2 = 0
 
 var time_since_right = 0
 var time_since_left = 0
@@ -38,7 +43,7 @@ var Atium = 0
 
 func _ready() -> void:
 	pass
-
+	
 func _physics_process(delta: float) -> void:
 	Iron += 0.024*delta
 	if Iron >= 1:
@@ -120,3 +125,21 @@ func _physics_process(delta: float) -> void:
 	time_since_left +=1
 	time_since_right +=1
 	move_and_slide()
+	
+	speedPercent1 = abs(velocity.x) / (MAXSPD)
+	speedPercent2 = remap(speedPercent1,0.0,1.0,0.75,1.5)
+	
+	if is_on_floor() and abs(velocity.x) > 0:
+		if timer.is_stopped():
+			timer.start(0.19/speedPercent2)
+	else:
+		timer.stop()
+	
+func _on_timer_timeout() -> void:
+	footsteps.play()
+	timer.start(0.19/speedPercent2)
+		
+	
+	
+	
+	

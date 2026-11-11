@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://br005uvkwegnf"
+path="res://.godot/imported/Wind woosh.mp3-d82386aafe88ed69a31a9caa92f9b6d2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Wind woosh.mp3"
+dest_files=["res://.godot/imported/Wind woosh.mp3-d82386aafe88ed69a31a9caa92f9b6d2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

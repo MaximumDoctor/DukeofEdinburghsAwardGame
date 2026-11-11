@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddbhby8t2u034"
+path="res://.godot/imported/Tin footstep.mp3-291e4797f5d92c44fea0f5e74d07ddee.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Tin footstep.mp3"
+dest_files=["res://.godot/imported/Tin footstep.mp3-291e4797f5d92c44fea0f5e74d07ddee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

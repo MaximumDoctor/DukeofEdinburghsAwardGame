@@ -1,10 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://5jtl4jxdkcxa"]
+[gd_scene load_steps=32 format=3 uid="uid://5jtl4jxdkcxa"]
 
-[ext_resource type="Script" uid="uid://dm8plj45kry0p" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://dm8plj45kry0p" path="res://Scenes/Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dfiprurd0q6o7" path="res://Assets/Placeholder Player.png" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://85irkiemywd1" path="res://Scenes/Allomancytable.tscn" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://btinjbwi0fj8m" path="res://Assets/AllomancySymbols.png" id="3_fkybt"]
-[ext_resource type="Script" uid="uid://blweyy82u48pk" path="res://Scenes/allomancytable.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://cqwsr71aeshsj" path="res://Scenes/Scripts/AllomancyUse.gd" id="4_3smsa"]
+[ext_resource type="Script" uid="uid://blweyy82u48pk" path="res://Scenes/Scripts/allomancytable.gd" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://bmidjnt1647bj" path="res://Assets/Sounds/Light footstep.mp3" id="7_8erm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -131,6 +133,20 @@ height = 700
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_x3wgy"]
+offsets = PackedFloat32Array(0, 0.02, 0.7733333)
+colors = PackedColorArray(0.53097445, 0.53097445, 0.53097445, 1, 0.36018848, 0.36018848, 0.36018848, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3smsa"]
+gradient = SubResource("Gradient_x3wgy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3smsa"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("7_8erm5")
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
@@ -164,6 +180,7 @@ material = SubResource("CanvasItemMaterial_3smsa")
 position = Vector2(-350, -170)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_fd4e3")
+script = ExtResource("4_3smsa")
 
 [node name="Allomancytable" parent="Camera2D" instance=ExtResource("3_6t5aa")]
 material = SubResource("CanvasItemMaterial_vgqql")
@@ -271,3 +288,21 @@ range_z_min = -4000
 range_z_max = 4000
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_x3wgy")
+
+[node name="Otherpointlight" type="PointLight2D" parent="."]
+position = Vector2(1.0000076, 0.9999962)
+scale = Vector2(2.5, 2.5)
+texture = SubResource("GradientTexture2D_3smsa")
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_3smsa")
+volume_db = -30.0
+pitch_scale = 1.2
+max_polyphony = 4
+
+[node name="Timer" type="Timer" parent="Footsteps"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Footsteps/Timer" to="." method="_on_timer_timeout"]
